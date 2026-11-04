@@ -7,7 +7,7 @@ num:1, titre:"Les vitrines de Noël",
 jours:[
 
 /* ===================== LUNDI ===================== */
-{id:"s1j1", date:"2026-11-16", court:"Lun", titre:"Premier jour",
+{id:"s1j1", date:"2026-11-16", ouvre:"2026-11-04", court:"Lun", titre:"Premier jour",
 fin:"Premier jour réussi ! Demain, Julien, le contrôleur de gestion, vient te présenter les chiffres de l’année. Prépare-toi : il est rarement de bonne humeur.",
 scenes:[
  {type:"recit", qui:"narr", heure:"Lundi · 8 h 00", mot:"franchise",
@@ -65,7 +65,7 @@ scenes:[
 ]},
 
 /* ===================== MARDI ===================== */
-{id:"s1j2", date:"2026-11-17", court:"Mar", titre:"Les chiffres de l’année",
+{id:"s1j2", date:"2026-11-17", ouvre:"2026-11-05", court:"Mar", titre:"Les chiffres de l’année",
 fin:"Demain matin, très tôt, une livraison importante arrive : le parfum star de Noël.",
 scenes:[
  {type:"recit", qui:"julien", heure:"Mardi · 9 h 30",
@@ -117,7 +117,7 @@ scenes:[
 ]},
 
 /* ===================== MERCREDI ===================== */
-{id:"s1j3", date:"2026-11-18", court:"Mer", titre:"Le parfum star",
+{id:"s1j3", date:"2026-11-18", ouvre:"2026-11-06", court:"Mer", titre:"Le parfum star",
 fin:"Demain : un retard de trop au rez-de-chaussée…",
 scenes:[
  {type:"recit", qui:"mickael", heure:"Mercredi · 7 h 05",
@@ -167,7 +167,7 @@ scenes:[
 ]},
 
 /* ===================== JEUDI ===================== */
-{id:"s1j4", date:"2026-11-19", court:"Jeu", titre:"Un retard de trop",
+{id:"s1j4", date:"2026-11-19", ouvre:"2026-11-07", court:"Jeu", titre:"Un retard de trop",
 fin:"Demain : dernière ligne droite avant l’inauguration des vitrines.",
 scenes:[
  {type:"recit", qui:"nadia", heure:"Jeudi · 10 h 05",
@@ -221,7 +221,7 @@ scenes:[
 ]},
 
 /* ===================== VENDREDI ===================== */
-{id:"s1j5", date:"2026-11-20", court:"Ven", titre:"Les vitrines",
+{id:"s1j5", date:"2026-11-20", ouvre:"2026-11-08", court:"Ven", titre:"Les vitrines",
 fin:"Demain, c’est le grand jour : l’inauguration des vitrines de Noël. Tous tes choix de la semaine vont compter.",
 scenes:[
  {type:"recit", qui:"camille", heure:"Vendredi · 9 h 00",
@@ -265,7 +265,7 @@ scenes:[
 ]},
 
 /* ===================== SAMEDI ===================== */
-{id:"s1j6", date:"2026-11-21", court:"Sam", titre:"L’inauguration",
+{id:"s1j6", date:"2026-11-21", ouvre:"2026-11-09", court:"Sam", titre:"L’inauguration",
 fin:"Ta première semaine est terminée ! Ouvre l’onglet **Bilan** pour voir tes résultats et envoyer ton bilan à papa.",
 scenes:[
  {type:"recit", qui:"narr", heure:"Samedi · 9 h 30",
@@ -354,4 +354,4 @@ bilan: s => {
 }
 });
 
-JEU.prochaine = "Semaine 2 à partir du lundi 23 novembre : le Black Friday arrive…";
+JEU.prochaine = "Un nouveau jour s’ouvre chaque jour. La semaine 2 (le Black Friday) arrivera après ton bilan.";

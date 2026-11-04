@@ -59,7 +59,7 @@ function statut(j){
   if (S.fait[j.id]) return "fait";
   const all = tousJours(); const i = all.findIndex(x => x.id === j.id);
   const prevOk = i === 0 || S.fait[all[i-1].id];
-  const dateOk = S.test || aujourdhui() >= j.date;
+  const dateOk = S.test || aujourdhui() >= (j.ouvre || j.date);
   if (prevOk && dateOk) return "dispo";
   return dateOk ? "attente" : "lock";
 }
@@ -119,8 +119,8 @@ function vueJours(){
     h += `<div class="sect">Semaine ${se.num} · ${esc(se.titre)}</div><div class="days">`;
     se.jours.forEach(j => {
       const st = statut(Object.assign({semaine:se.num}, j));
-      const lbl = st==="fait" ? "Terminé" : st==="dispo" ? "Disponible maintenant" : st==="attente" ? "Termine d’abord le jour précédent" : "Disponible le " + dateFr(j.date);
-      h += `<button type="button" class="day ${st==="fait"?"done":st==="dispo"?"now":"lock"}" ${st==="dispo"||st==="fait"?`data-jour="${j.id}"`:'aria-disabled="true"'}><span class="dn">${esc(j.court)}</span><span><span class="dt">${esc(j.titre)}</span><br><span class="ds">${dateFr(j.date)} · ${lbl}</span></span></button>`;
+      const lbl = st==="fait" ? "Terminé" : st==="dispo" ? "Disponible maintenant" : st==="attente" ? "Termine d’abord le jour précédent" : "Disponible le " + dateFr(j.ouvre || j.date);
+      h += `<button type="button" class="day ${st==="fait"?"done":st==="dispo"?"now":"lock"}" ${st==="dispo"||st==="fait"?`data-jour="${j.id}"`:'aria-disabled="true"'}><span class="dn">${esc(j.court)}</span><span><span class="dt">${esc(j.titre)}</span><br><span class="ds">${st==="lock" ? lbl : dateFr(j.date) + " · " + lbl}</span></span></button>`;
     });
     h += `</div>`;
   });
