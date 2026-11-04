@@ -13,9 +13,9 @@ scenes:[
  {type:"recit", qui:"narr", heure:"Lundi · 8 h 00", mot:"franchise",
   texte:"Bonjour {p} ! Aujourd’hui, tu deviens la directrice des **Galeries Lafayette d’Amiens**, rue des Trois-Cailloux. Le bâtiment date de 1927, en style Art déco.\n\nTon magasin est une [[franchise|franchise]] : il porte le nom de l’enseigne, mais il appartient à une autre société. Ton chef, c’est M. Lemaire."},
  {type:"recit", qui:"karim", heure:"8 h 05",
-  texte:"« Bienvenue, {p} ! Je suis Karim, ton adjoint. Ici, tu as 40 salariés, 4 étages et environ 60 vendeurs des marques.\n\nGros rendez-vous cette semaine : **samedi 21 novembre, on inaugure les vitrines de Noël.** C’est l’un des plus gros jours de l’année. »"},
+  texte:"« Bienvenue parmi nous, Madame la directrice ! Je suis Karim, votre adjoint. Ici, vous avez 40 salariés, 4 étages et environ 60 vendeurs des marques.\n\nGros rendez-vous cette semaine : **samedi 21 novembre, on inaugure les vitrines de Noël.** C’est l’un des plus gros jours de l’année. »"},
  {type:"choix", qui:"karim", resume:"Ma première heure",
-  texte:"« Il reste une heure avant le brief de 9 h. Par quoi veux-tu commencer ? »",
+  texte:"« Il reste une heure avant le brief de 9 h. Par quoi voulez-vous commencer ? »",
   choix:[
    {t:"Faire le tour des 4 étages avec Karim", court:"Tour des étages", fx:{equipe:4}, rel:{karim:1}, set:{tour:true},
     retour:"Karim te montre tout : la beauté au rez-de-chaussée, la mode au 1er, la maison au 2e, l’épicerie fine et le salon de thé au 3e, avec son toit-terrasse. Les salariés sont contents de te voir."},
@@ -53,7 +53,7 @@ scenes:[
  {type:"recit", qui:"helene", heure:"11 h 00",
   texte:"Hélène t’apporte les ventes de samedi dernier, étage par étage :\n\nRez-de-chaussée : 21 400 €\n1er étage : 18 900 €\n2e étage : 7 300 €\n3e étage : 4 400 €"},
  {type:"calcul", qui:"helene", resume:"Total des ventes de samedi", mot:"ca",
-  texte:"« Tu peux me donner le [[ca|chiffre d’affaires]] total du magasin pour samedi ? M. Lemaire le demande. »",
+  texte:"« Pouvez-vous me donner le [[ca|chiffre d’affaires]] total du magasin pour samedi ? M. Lemaire le demande. »",
   reponse:52000, unite:"€",
   indice:"Additionne les quatre étages : 21 400 + 18 900 + 7 300 + 4 400.",
   explication:"21 400 + 18 900 + 7 300 + 4 400 = **52 000 €**. C’est le chiffre d’affaires de la journée : tout l’argent encaissé grâce aux ventes."},
@@ -71,7 +71,7 @@ scenes:[
  {type:"recit", qui:"julien", heure:"Mardi · 9 h 30",
   texte:"Julien, le contrôleur de gestion, pose un tableau sur ton bureau :\n\n« Depuis le 1er janvier, on a vendu pour **12,6 millions d’euros**. L’an dernier, à la même date : **12,85 millions**. »"},
  {type:"qcm", qui:"julien", resume:"Évolution des ventes", mot:"evolution",
-  texte:"« À ton avis, quelle est l’[[evolution|évolution]] de nos ventes par rapport à l’an dernier ? »",
+  texte:"« À votre avis, quelle est l’[[evolution|évolution]] de nos ventes par rapport à l’an dernier ? »",
   options:["Environ −0,25 %","Environ −2 %","Environ −25 %","Environ +2 %"], bonne:1,
   indice:"On calcule (nouveau − ancien) ÷ ancien × 100. Commence par la soustraction : 12,6 − 12,85.",
   explication:"(12,6 − 12,85) ÷ 12,85 × 100 ≈ **−1,9 %**, donc environ −2 %.\n\nAttention au piège : la différence est de 0,25 million, mais en pourcentage, c’est presque 2 %."},
@@ -107,11 +107,11 @@ scenes:[
     retour:"Hugo, l’étudiant du salon de thé, accepte d’échanger. Hélène modifie le planning.\n\nC’est souvent la meilleure solution : la directrice fixe les règles, l’équipe trouve l’arrangement."}
   ]},
  {type:"recit", qui:"zoe", heure:"17 h 30",
-  texte:"Zoé, l’apprentie, t’attend devant ton bureau :\n\n« Je peux te poser une question ? J’aimerais bien faire ton métier un jour. Comment on devient directrice ? »"},
+  texte:"Zoé, l’apprentie, t’attend devant ton bureau :\n\n« Je peux vous poser une question ? J’aimerais bien faire votre métier un jour. Comment devient-on directrice ? »"},
  {type:"recit", qui:"narr", bouton:"Continuer",
   texte:"Tu lui expliques : on ne devient jamais directrice à la sortie de l’école.\n\nIl faut au moins un **bac+2**, comme le BTS MCO que prépare Zoé. Ensuite, on monte les marches : conseillère de vente, responsable de rayon, responsable d’étage, adjointe, puis directrice.\n\nUne vraie directrice des Galeries Lafayette a mis près de 30 ans pour faire ce parcours !"},
  {type:"libre", qui:"zoe", resume:"Mon conseil à Zoé",
-  texte:"« Et toi, quel conseil tu me donnerais pour réussir ? »",
+  texte:"« Et vous, quel conseil me donneriez-vous pour réussir ? »",
   placeholder:"Mon conseil, c’est…",
   retour:"Zoé note ton conseil dans son carnet. « Merci, je vais m’en souvenir ! »"}
 ]},
@@ -202,7 +202,7 @@ scenes:[
   indice:"De 10 h 30 à 19 h 30, il y a 9 heures. Il faut enlever la pause.",
   explication:"19 h 30 − 10 h 30 = 9 h, moins 1 h de pause = **8 heures** de travail. C’est bien sous la limite de 9 heures par jour."},
  {type:"recit", qui:"lemaire", heure:"15 h 00 · Téléphone", mot:"cse",
-  texte:"M. Lemaire, ton chef, t’appelle :\n\n« {p}, pour rattraper les −2 %, je veux qu’on ouvre le **dimanche 6 décembre**. Parles-en au [[cse|CSE]]. »"},
+  texte:"M. Lemaire, ton chef, t’appelle :\n\n« {p}, pour rattraper les −2 %, je veux qu’on ouvre le **dimanche 6 décembre**. Parlez-en au [[cse|CSE]]. »"},
  {type:"calcul", qui:"julien", resume:"Coût des salaires du dimanche",
   texte:"Julien fait le calcul : « Le dimanche, les salaires sont payés double. Il faut 20 salariés pendant 7 heures, payés 13 € de l’heure en temps normal. Combien coûtent les salaires de ce dimanche ? »",
   reponse:3640, unite:"€",
@@ -216,7 +216,7 @@ scenes:[
    {t:"J’impose le dimanche à toute l’équipe", court:"Dimanche imposé", fx:{equipe:-6, caisse:4}, set:{dimanche:"impose"},
     retour:"Le CSE proteste : dans le commerce, le travail du dimanche se fait en général avec des volontaires. L’ambiance devient tendue."},
    {t:"Je refuse, et je l’explique à M. Lemaire", court:"Pas d’ouverture", fx:{equipe:2, caisse:-2}, rel:{lemaire:-1}, set:{dimanche:"non"},
-    retour:"M. Lemaire n’est pas content : « Alors trouve-moi une autre idée pour rattraper le retard. » Il faudra lui proposer un plan."}
+    retour:"M. Lemaire n’est pas content : « Alors trouvez-moi une autre idée pour rattraper le retard. » Il faudra lui proposer un plan."}
   ]}
 ]},
 
@@ -229,7 +229,7 @@ scenes:[
  {type:"recit", qui:"julien", mot:"budget",
   texte:"Julien sort son tableau : « Le [[budget|budget]] des vitrines était de **3 000 €**. On a déjà dépensé **2 600 €**. »"},
  {type:"calcul", qui:"julien", resume:"Dépassement du budget",
-  texte:"« Si tu acceptes les 800 €, de combien d’euros on dépasse le budget ? »",
+  texte:"« Si vous acceptez les 800 €, de combien d’euros dépasse-t-on le budget ? »",
   reponse:400, unite:"€",
   indice:"Calcule d’abord 2 600 + 800, puis compare avec 3 000.",
   explication:"2 600 + 800 = 3 400 €. 3 400 − 3 000 = **400 €** de dépassement."},
@@ -251,7 +251,7 @@ scenes:[
     retour:"Camille fait de son mieux, mais une vitrine reste à moitié éclairée. Les passants vont le remarquer."}
   ]},
  {type:"recit", qui:"karim", heure:"17 h 00",
-  texte:"Karim vient te voir : « Demain, laisse-moi piloter les caisses et la sécurité. J’aimerais te montrer que je suis prêt à avoir plus de responsabilités. »"},
+  texte:"Karim vient te voir : « Demain, laissez-moi piloter les caisses et la sécurité. J’aimerais vous montrer que je suis prêt à avoir plus de responsabilités. »"},
  {type:"choix", qui:"karim", resume:"La demande de Karim",
   texte:"Que réponds-tu à Karim ?",
   choix:[
@@ -296,7 +296,7 @@ scenes:[
  {type:"recit", qui:"nadia", heure:"16 h 00",
   fx: s => s.flags.entretienTheo ? {equipe:3} : s.flags.avertissement ? {equipe:-1} : {equipe:-4},
   set: s => s.flags.laisse ? {nadiaCSE:true} : {},
-  texte: s => s.flags.entretienTheo ? "Ce matin, Théo est arrivé 10 minutes en avance. Nadia te fait un clin d’œil : « Je ne sais pas ce que tu lui as dit, mais ça marche. »"
+  texte: s => s.flags.entretienTheo ? "Ce matin, Théo est arrivé 10 minutes en avance. Nadia te fait un clin d’œil : « Je ne sais pas ce que vous lui avez dit, mais ça marche. »"
     : s.flags.avertissement ? "Théo est à l’heure, mais il ne parle plus à personne. L’ambiance au rez-de-chaussée est froide."
     : "Théo est encore arrivé à 10 h 20. Nadia te prévient : « Je vais en parler au CSE. »"},
  {type:"choix", qui:"jp", heure:"16 h 30 · Alerte", resume:"L’enfant perdu",
@@ -312,7 +312,7 @@ scenes:[
  {type:"recit", qui:"julien", heure:"20 h 15 · Fermeture",
   texte:"Les portes sont fermées. Julien arrive avec les résultats de la journée :\n\n**5 000 visiteurs · 1 200 tickets de caisse · 78 000 € de ventes**"},
  {type:"calcul", qui:"julien", resume:"Panier moyen du samedi", mot:"panier",
-  texte:"« Calcule le [[panier|panier moyen]] de la journée. »",
+  texte:"« Pouvez-vous calculer le [[panier|panier moyen]] de la journée ? »",
   reponse:65, unite:"€",
   indice:"Panier moyen = chiffre d’affaires ÷ nombre de tickets de caisse.",
   explication:"78 000 ÷ 1 200 = **65 €**. En moyenne, chaque client qui a acheté a dépensé 65 €."},
@@ -323,12 +323,12 @@ scenes:[
   explication:"1 200 ÷ 5 000 = 0,24, soit **24 %** : environ 1 visiteur sur 4 a acheté quelque chose."},
  {type:"recit", qui:"lemaire", heure:"20 h 30 · SMS",
   texte: s => (s.jauges.clients >= 75
-    ? "« Belle journée, {p}. 78 000 €, c’est 6 % de plus que l’an dernier. Continue comme ça. »"
+    ? "« Belle journée, {p}. 78 000 €, c’est 6 % de plus que l’an dernier. Continuez comme ça. »"
     : "« 78 000 €, c’est bien, 6 % de plus que l’an dernier. Mais on m’a parlé de clients mécontents. On en parle lundi. »")
     + (s.flags.vitrines === "top" ? "\n\nEt sur les réseaux sociaux, les photos des vitrines d’Amiens circulent déjà." : "")
     + (s.flags.budgetDepasse ? "\n\n« Et j’ai vu passer la facture des guirlandes : le budget était de 3 000 €, pas 3 400 €. »" : "")},
  {type:"qcm", qui:"zoe", resume:"Révision : la rupture",
-  texte:"En partant, Zoé te pose une colle : « Au fait, une rupture, c’est quoi ? »",
+  texte:"En partant, Zoé te pose une colle : « Au fait, une rupture, c’est quoi exactement ? »",
   options:["Une dispute entre deux salariés","Un produit qui n’est plus disponible alors que des clients le demandent","La fermeture du magasin le soir","Une réduction pendant les soldes"], bonne:1,
   indice:"Pense au parfum star de mercredi.",
   explication:"Une rupture, c’est quand un produit manque alors que des clients le demandent. C’est le cauchemar de toutes les directrices à Noël !"}
