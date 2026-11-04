@@ -319,6 +319,11 @@ function modal(html){
 function reglages(){
   modal(`<h3>Réglages</h3><div class="lab">Teinte<div class="sw">${Object.keys(TEINTES).map(k=>`<button type="button" data-teinte="${k}" class="${S.teinte===k?"on":""}" style="background:${TEINTES[k]}" aria-label="${k}"></button>`).join("")}</div></div>
   <label class="row" style="gap:10px"><input type="checkbox" id="test" ${S.test?"checked":""}> Mode test : tous les jours ouverts (pour les parents)</label>
+  <div class="sect" style="margin:6px 0 0">Changer d’appareil</div>
+  <p class="sub" style="margin:0">Pour continuer sur un autre téléphone ou ordinateur : copie le code de ta partie, envoie-le-toi, puis colle-le sur l’autre appareil.</p>
+  <button type="button" class="btn ghost" data-act="exporter">Copier le code de ma partie</button>
+  <label class="lab">Coller un code reçu<textarea id="code-import" rows="3" placeholder="Colle ici le code de ta partie"></textarea></label>
+  <button type="button" class="btn ghost" data-act="importer">Reprendre cette partie</button>
   <button type="button" class="btn ghost" data-act="reset">Recommencer depuis le début</button>
   <button type="button" class="btn" data-act="fermer">Fermer</button>`);
 }
@@ -346,6 +351,19 @@ document.addEventListener("click", ev => {
     case "fermer": { const m = t.closest(".modal"); if (m) m.remove(); render(); break; }
     case "reset": if (confirmReset()) { S = neuf(); setTeinte(); document.querySelectorAll(".modal").forEach(m=>m.remove()); render(); } break;
     case "partager": partager(Number(d.sem)); break;
+    case "exporter": {
+      const st = Object.assign({}, S); delete st._share; delete st.test;
+      let code = ""; try { code = "PARTIE:" + btoa(unescape(encodeURIComponent(JSON.stringify(st)))); } catch(e){}
+      const done = () => { t.textContent = "Code copié ! Envoie-le-toi (SMS, WhatsApp, mail)"; };
+      if (navigator.share) { navigator.share({title:"Ma partie", text:code}).then(done).catch(()=>{ try { navigator.clipboard.writeText(code).then(done); } catch(e){} }); }
+      else { try { navigator.clipboard.writeText(code).then(done, () => { const ta = document.getElementById("code-import"); ta.value = code; ta.select(); document.execCommand("copy"); done(); }); } catch(e){ const ta = document.getElementById("code-import"); ta.value = code; ta.select(); document.execCommand("copy"); done(); } }
+      break; }
+    case "importer": {
+      const raw = (document.getElementById("code-import").value || "").trim().replace(/^.*PARTIE:/s, "").replace(/\s/g, "");
+      try { const st = JSON.parse(decodeURIComponent(escape(atob(raw)))); if (!st || !st.jauges || !st.fait) throw 0;
+        S = Object.assign(neuf(), st); S.enCours = null; setTeinte(); save(); document.querySelectorAll(".modal").forEach(m=>m.remove()); render();
+      } catch(e) { t.textContent = "Code non reconnu : vérifie que tout le code est collé"; }
+      break; }
     case "share-natif": navigator.share({title:"Mon bilan", text:S._share}).catch(()=>{}); break;
     case "copier": { const ta = document.getElementById("bilan-txt"); ta.select(); try { navigator.clipboard.writeText(ta.value); t.textContent = "Copié !"; } catch(e){ document.execCommand("copy"); t.textContent = "Copié !"; } break; }
   }
